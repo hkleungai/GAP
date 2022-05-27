@@ -1,0 +1,33 @@
+div.board {
+  --row-gap: 8px;
+  --date-column-width: 35%;
+  --horizontal-padding: 16px;
+  font-size: 16px;
+  overflow-y: scroll;
+  max-width: 100%;
+  background-color: #000000;
+  color: #8ae234;
+  padding: 12px var(--horizontal-padding);
+  font-family: courier;
+  line-height: 1.8;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+div.board div.notice-row {
+  display: flex;
+  flex-direction: row;
+  gap: var(--row-gap);
+}
+div.board div.notice-row div.date {
+  font-style: italic;
+  min-width: var(--date-column-width);
+  white-space: normal;
+  word-wrap: break-word;
+}
+div.board div.notice-row div.notice-list-by-date {
+  padding-right: var(--horizontal-padding);
+}
+div.board div::selection {
+  background: #0080FF;
+  text-shadow: none;
+}
