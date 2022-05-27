@@ -1,4 +1,5 @@
 const GIT_LOGS = {
-    '28/05-00:50': 'feat: implement app update board',
+    '2022/05/28 01:27:27': 'refactor: remove console log',
+    '2022/05/28 00:50:09': 'feat: implement app update board',
 };
 export default GIT_LOGS;

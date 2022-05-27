@@ -32,7 +32,7 @@ export default class BoardRenderer extends BaseRenderer {
 _BoardRenderer_instances = new WeakSet(), _BoardRenderer_buildGitLogs = function _BoardRenderer_buildGitLogs(__GIT_LOGS) {
     const logEntries = Object.entries(__GIT_LOGS);
     const dailyLogObject = logEntries.reduce((acc, [key, rawLog]) => {
-        const dateString = key;
+        const dateString = key.replace(/^[0-9]{4,}\//, '').replace(/:[0-9]{2}$/, '');
         const log = rawLog.replace(/^.*:\s+/, '');
         const sentenceCasedLog = log[0].toUpperCase() + log.slice(1);
         if (acc[dateString]) {
@@ -57,7 +57,7 @@ _BoardRenderer_instances = new WeakSet(), _BoardRenderer_buildGitLogs = function
         <div class="date">
           ${date}
         </div>
-        <div class="notice-list-by-date">
+        <div class="daily-log-list">
           ${logs.map((log) => __classPrivateFieldGet(this, _BoardRenderer_instances, "m", _BoardRenderer_buildLog).call(this, log)).join('\n')}
         </div>
       </div>

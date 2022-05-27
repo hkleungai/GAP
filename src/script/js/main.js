@@ -1,6 +1,5 @@
 import BoardRenderer from './BoardRenderer.js';
 import __GIT_LOGS from '../data/gitLogs.js';
-console.log({ __GIT_LOGS });
 main();
 function main() {
     try {
@@ -17,7 +16,6 @@ function _main() {
         throw new Error('No closing div can be found!!');
     }
     const boardRenderer = new BoardRenderer();
-    console.log({ boardRenderer });
     const fragment = boardRenderer.render({ __GIT_LOGS }).fragment;
     mainDiv.appendChild(fragment);
 }

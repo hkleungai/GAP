@@ -11,7 +11,7 @@ export default class BoardRenderer extends BaseRenderer<BoardRendererProps> {
   #buildGitLogs(__GIT_LOGS: GitLogs): DailyGitLog[] {
     const logEntries = Object.entries(__GIT_LOGS);
     const dailyLogObject = logEntries.reduce<DailyGitLogEntries>((acc, [key, rawLog]) => {
-      const dateString = key;
+      const dateString = key.replace(/^[0-9]{4,}\//, '').replace(/:[0-9]{2}$/, '');
       // Get rid of conventional commits' prefixes with the form "...: "
       const log = rawLog.replace(/^.*:\s+/, '');
       // An unfortunatate trick for making sentence-case string
@@ -43,7 +43,7 @@ export default class BoardRenderer extends BaseRenderer<BoardRendererProps> {
         <div class="date">
           ${date}
         </div>
-        <div class="notice-list-by-date">
+        <div class="daily-log-list">
           ${logs.map((log) => this.#buildLog(log)).join('\n')}
         </div>
       </div>
