@@ -11,7 +11,8 @@ export default class BoardRenderer extends BaseRenderer<BoardRendererProps> {
   #buildGitLogs(__GIT_LOGS: GitLogs): DailyGitLog[] {
     const logEntries = Object.entries(__GIT_LOGS);
     const dailyLogObject = logEntries.reduce<DailyGitLogEntries>((acc, [key, rawLog]) => {
-      const dateString = key.replace(/^[0-9]{4,}\//, '').replace(/:[0-9]{2}$/, '');
+      // Fancy way to convert date string from git log data json
+      const dateString = key.replace(/^[0-9]{4,}\//, '').replace(/:[0-9]{2}/g, '') + ':00';
       // Get rid of conventional commits' prefixes with the form "...: "
       const log = rawLog.replace(/^.*:\s+/, '');
       // An unfortunatate trick for making sentence-case string

@@ -1,4 +1,7 @@
 div.board {
+  --row-gap: 18px;
+  --date-column-width: 30%;
+
   overflow-y: scroll;
   max-width: 100%;
   background-color: #000000;
@@ -12,16 +15,16 @@ div.board {
 div.board div.notice-row {
   display: flex;
   flex-direction: row;
-  gap: 18px;
+  gap: var(--row-gap);
 }
 div.board div.notice-row div.date {
   font-style: italic;
-  width: 30%;
+  width: var(--date-column-width);
   white-space: normal;
   word-wrap: break-word;
 }
 div.board div.notice-row div.notice-list-by-date {
-  width: calc(100% - 25% - 18px);
+  width: calc(100% - var(--date-column-width) - var(--row-gap));
 }
 div.board div::selection {
   background: #0080FF;
