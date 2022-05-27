@@ -32,7 +32,7 @@ export default class BoardRenderer extends BaseRenderer<BoardRendererProps> {
   #buildLog(log: string): string {
     return (
       /* html */`
-      <div class="daily-log">
+      <div class="hourly-log">
         ${log}
       </div>`
     );

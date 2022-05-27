@@ -48,7 +48,7 @@ _BoardRenderer_instances = new WeakSet(), _BoardRenderer_buildGitLogs = function
     return dailyLogList.sort((a, b) => new Date((b.date)).getTime() - new Date(a.date).getTime());
 }, _BoardRenderer_buildLog = function _BoardRenderer_buildLog(log) {
     return (`
-      <div class="daily-log">
+      <div class="hourly-log">
         ${log}
       </div>`);
 }, _BoardRenderer_buildDailyLogs = function _BoardRenderer_buildDailyLogs({ date, logs }) {

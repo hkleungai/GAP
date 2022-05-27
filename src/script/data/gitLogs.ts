@@ -1,6 +1,7 @@
 /* THIS IS AN AUTO GENERATED LOG FILE BY COMMIT HOOK. DO NOT TOUCH IT! */
 
 const GIT_LOGS = {
+  '2022/05/28 02:44:06': 'feat: add readme',
   '2022/05/28 01:59:12': 'fix: fix css classname and rule',
   '2022/05/28 01:34:31': 'fix: fix log data format and apply css var',
   '2022/05/28 01:27:27': 'refactor: remove console log',
