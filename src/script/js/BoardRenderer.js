@@ -57,7 +57,7 @@ _BoardRenderer_instances = new WeakSet(), _BoardRenderer_buildGitLogs = function
         <div class="date">
           ${date}
         </div>
-        <div class="daily-log-list">
+        <div class="notice-list-by-date">
           ${logs.map((log) => __classPrivateFieldGet(this, _BoardRenderer_instances, "m", _BoardRenderer_buildLog).call(this, log)).join('\n')}
         </div>
       </div>

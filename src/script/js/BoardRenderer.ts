@@ -44,7 +44,7 @@ export default class BoardRenderer extends BaseRenderer<BoardRendererProps> {
         <div class="date">
           ${date}
         </div>
-        <div class="daily-log-list">
+        <div class="notice-list-by-date">
           ${logs.map((log) => this.#buildLog(log)).join('\n')}
         </div>
       </div>
