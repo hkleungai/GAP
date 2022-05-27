@@ -1,0 +1,23 @@
+{
+  "name": "mini-web-component",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "live-server src",
+    "link-alias": "yarn tsc-alias --dir src/script",
+    "build": "tsc && yarn link-alias",
+    "build:watch": "concurrently \"tsc --watch\" \"yarn link-alias --watch\"",
+    "clean": "rm src/script/**/*.js",
+    "deploy": "gh-pages -d src"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^7.2.0",
+    "gh-pages": "^3.2.3",
+    "husky": "^8.0.1",
+    "live-server": "1.2.1",
+    "tsc-alias": "^1.6.7",
+    "typescript": "^4.6.4"
+  }
+}

@@ -1,0 +1,29 @@
+div.board {
+  overflow-y: scroll;
+  max-width: 100%;
+  background-color: #000000;
+  color: #8ae234;
+  padding: 12px 16px;
+  font-family: courier;
+  line-height: 1.8;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+div.board div.notice-row {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+}
+div.board div.notice-row div.date {
+  font-style: italic;
+  width: 30%;
+  white-space: normal;
+  word-wrap: break-word;
+}
+div.board div.notice-row div.notice-list-by-date {
+  width: calc(100% - 25% - 18px);
+}
+div.board div::selection {
+  background: #0080FF;
+  text-shadow: none;
+}

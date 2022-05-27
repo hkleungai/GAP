@@ -1,0 +1,25 @@
+#!/bin/sh
+__temp_commit=".temp-commit"
+__custom_git_log_folder_path="src/script/data"
+__custom_git_log_ts_path="${__custom_git_log_folder_path}/gitLogs.ts"
+__custom_git_log_js_path="${__custom_git_log_folder_path}/gitLogs.js"
+
+if [ -e $__temp_commit ]
+then
+  rm $__temp_commit
+  mkdir -p  $__custom_git_log_folder_path
+  touch     $__custom_git_log_ts_path
+  echo "/* THIS IS AN AUTO GENERATED LOG FILE BY COMMIT HOOK. DO NOT TOUCH IT! */\n"    \
+    >                       $__custom_git_log_ts_path
+  echo "const GIT_LOGS = {"                                                             \
+    >>                      $__custom_git_log_ts_path
+  git log --pretty=format:"  '%ad': '%s'," --date=format:"%d/%m-%H:%M"                  \
+    >>                      $__custom_git_log_ts_path
+  echo "\n};"                                                                           \
+    >>                      $__custom_git_log_ts_path
+  echo "\nexport default GIT_LOGS;"                                                     \
+    >>                      $__custom_git_log_ts_path
+  yarn build
+  git add                   $__custom_git_log_ts_path   $__custom_git_log_js_path
+  git commit --amend -C HEAD --no-verify
+fi
